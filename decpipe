@@ -1,11 +1,13 @@
 pipeline {
-      agent none
-      environment {
-  DB_URL = "35.154.149.129"
+      agent any
+     parameters {
+  string defaultValue: 'main', name: 'branch', trim: true
+}
+environment {
+  branch_name = "${branch}"
 }
       stages{
         stage ('BUILD'){
-              agent {label 'master'}
         steps{
             sh ''' 
             sleep 5
@@ -14,7 +16,6 @@ pipeline {
             }
          }
           stage ('DEPLOY'){
-                agent{label'maven'}
         steps{
             sh '''
             sleep 5
@@ -23,7 +24,6 @@ pipeline {
             }
          }
           stage ('TESTING'){
-                agent {label 'maven'}
         steps{
             sh '''
             sleep 5
