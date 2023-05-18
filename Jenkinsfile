@@ -1,7 +1,7 @@
 pipeline {
       agent any
      parameters {
-  string defaultValue: 'main', name: 'branch', trim: true
+  string defaultValue: 'master', name: 'branch', trim: true
 }
 environment {
   branch_name = "${branch}"
