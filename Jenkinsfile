@@ -7,7 +7,7 @@ environment {
   branch_name = "${branch}"
 }
       stages{
-        stage ('BUILD'){
+        stage ('build'){
         steps{
             sh ''' 
             sleep 5
